@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Configurações',
-      url: '/folder/Outbox',
+      url: '/config',
       icon: 'construct'
     },
   ];
