@@ -8,5 +8,16 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-item>
+    <ion-label>Key</ion-label>
+    <ion-input type="text" [(ngModel)]="config.key" name="title"></ion-input>
+  </ion-item>
+  
+  <!-- or with standalone set to true -->
+  <ion-item>
+    <ion-label>Secret</ion-label>
+    <ion-input type="text" [(ngModel)]="config.secret" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+    <ion-button color="secondary half" (click)="back()">Voltar</ion-button>
+    <ion-button color="primary half" (click)="save()">Salvar</ion-button>
 </ion-content>

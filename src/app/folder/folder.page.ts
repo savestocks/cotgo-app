@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemService } from '../api/item.service';
 import { LocalStorageService } from '../service/local-storage.service';
 
@@ -13,13 +13,13 @@ export class FolderPage implements OnInit {
   public items;
 
   constructor(private activatedRoute: ActivatedRoute,private service: ItemService,
-      private localStorageService: LocalStorageService) { }
+      private localStorageService: LocalStorageService, private router: Router) { }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.items = this.service.getItems();
-    if(!this.localStorageService.get("apikey")){
-      console.warn("not key")
+    if(!this.localStorageService.get("apikey") ||  !this.localStorageService.get("apisecret")){
+      this.router.navigate(['/config'])
     }
   }
 
