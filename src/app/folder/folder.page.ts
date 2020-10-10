@@ -17,7 +17,10 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
-    this.items = this.service.getItems();
+    this.items = [];
+    this.service.getItems().subscribe((data: any)=> {
+      this.items = data;
+    });
     if(!this.localStorageService.get("apikey") ||  !this.localStorageService.get("apisecret")){
       this.router.navigate(['/config'])
     }
