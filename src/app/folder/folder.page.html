@@ -35,9 +35,9 @@
         </ion-row>
         <ion-row>
           <ion-col offset-md="2" size-xs="12" size="10">
-            <ion-button color="danger">{{ item.highestPrice/100|currency :'EUR':true}} </ion-button>
-            <ion-button color="success">{{ item.lowestPrice/100|currency :'EUR':true}} </ion-button>
-            <ion-button color="light">{{ item.lastPrice/100|currency :'EUR':true}}</ion-button>
+            <ion-button color="danger">{{ item.highestPrice/100|currency :'EUR':'symbol-narrow'}} </ion-button>
+            <ion-button color="success">{{ item.lowestPrice/100|currency :'EUR':'symbol-narrow'}} </ion-button>
+            <ion-button color="light">{{ item.lastPrice/100|currency :'EUR':'symbol-narrow'}}</ion-button>
           </ion-col>
         </ion-row>        
       </ion-grid>

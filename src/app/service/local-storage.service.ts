@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -36,6 +37,18 @@ export class LocalStorageService {
     }
 
     return false;
+  }
+
+  getAuthorizationHeader(): any {
+    let key = this.get('apikey');
+    let secret = this.get('apisecret');
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Basic ' + btoa(`${key}:${secret}`)
+      })
+    };
+    return httpOptions;
   }
 
   get isLocalStorageSupported(): boolean {

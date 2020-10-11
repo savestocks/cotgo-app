@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  itemApiUrl: 'http://192.168.1.77:8084/item-api/v1/'
+  itemApiUrl: 'http://192.168.1.77:8084/item-api/v1/',
+  groupApiUrl: 'http://192.168.1.77:8084/group-api/v1/'
 };
 
 /*

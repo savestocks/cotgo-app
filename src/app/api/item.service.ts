@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import {LocalStorageService} from '../service/local-storage.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,17 +13,12 @@ export class ItemService {
   url: string = environment.itemApiUrl;
   endpoint: string = 'item';
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      'Authorization': 'Basic ' + btoa('cotgo:cotgo')
-    })
-  };
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient,private storageService: LocalStorageService) { }
 
   getItems(): Observable<Object> {
-    return this.http.get(`${this.url}${this.endpoint}`,this.httpOptions);
+    return this.http.get(`${this.url}${this.endpoint}`,this.storageService.getAuthorizationHeader());
   }
 
 }
