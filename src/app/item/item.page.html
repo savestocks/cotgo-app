@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Sigla</ion-label>
+    <ion-input type="text" maxlength="5" [(ngModel)]="item.key" name="title"></ion-input>
+  </ion-item>
+  
+  <!-- or with standalone set to true -->
+  <ion-item>
+    <ion-label>Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="item.secret" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <app-group></app-group>
+    <ion-button color="secondary half" (click)="back()">Voltar</ion-button>
+    <ion-button color="primary half" (click)="save()">Salvar</ion-button>
+</ion-content>

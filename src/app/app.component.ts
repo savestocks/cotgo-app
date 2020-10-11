@@ -18,6 +18,11 @@ export class AppComponent implements OnInit {
       icon: 'analytics'
     },
     {
+      title: 'Item',
+      url: '/item',
+      icon: 'bag-add'
+    },
+    {
       title: 'Configurações',
       url: '/config',
       icon: 'construct'
