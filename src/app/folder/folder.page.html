@@ -14,8 +14,6 @@
     </ion-toolbar>
   </ion-header>
   <ion-list>
-    <ion-item *ngFor="let item of items" >
-      <app-item-line [item]="item"></app-item-line>
-    </ion-item>
+      <app-item-line *ngFor="let item of items" [item]="item"></app-item-line>
   </ion-list>
 </ion-content>
