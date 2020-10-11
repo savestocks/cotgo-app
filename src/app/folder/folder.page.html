@@ -13,8 +13,8 @@
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <app-group></app-group>
+  <app-group (changed)="groupChanged($event)"></app-group>
   <ion-list>
-      <app-item-line *ngFor="let item of items" [item]="item"></app-item-line>
+      <app-item-line *ngFor="let item of filteredItems" [item]="item"></app-item-line>
   </ion-list>
 </ion-content>

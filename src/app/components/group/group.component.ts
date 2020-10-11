@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GroupService } from 'src/app/api/group.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { GroupService } from 'src/app/api/group.service';
   styleUrls: ['./group.component.scss'],
 })
 export class GroupComponent implements OnInit {
+  @Output() 
+  private changed: EventEmitter<any> = new EventEmitter();
   private groups =[];
   constructor(private service: GroupService) { }
 
@@ -14,6 +16,9 @@ export class GroupComponent implements OnInit {
     this.service.getGroups().subscribe((data: any)=> {
       this.groups = data;
     });    
+  }
+  onChange(event: any){
+    this.changed.emit(event.target.value);
   }
 
 }

@@ -10,7 +10,9 @@ import { LocalStorageService } from '../service/local-storage.service';
 })
 export class FolderPage implements OnInit {
   public folder: string;
-  public items;
+  private items;
+  private filteredItems;
+  private groupFilter = "";
 
   constructor(private activatedRoute: ActivatedRoute,private service: ItemService,
       private localStorageService: LocalStorageService, private router: Router) { }
@@ -20,10 +22,22 @@ export class FolderPage implements OnInit {
     this.items = [];
     this.service.getItems().subscribe((data: any)=> {
       this.items = data;
+      this.filterItems();
     });
     if(!this.localStorageService.get("apikey") ||  !this.localStorageService.get("apisecret")){
       this.router.navigate(['/config'])
     }
+  }
+
+  groupChanged(id: string){
+    this.groupFilter = id;
+    this.filterItems();
+  }
+
+  filterItems(){
+    this.filteredItems = this.items.filter((it) => {
+      return this.groupFilter == "" || this.groupFilter == it.groupId;
+    });
   }
 
 }
