@@ -1,6 +1,6 @@
 #!/bin/bash
 path=$HOME/go/src/github.com/andersonlira/
-projects=(item-api group-api)
+projects=(item-api group-api purchase-api market-api)
 start()
 {
     for p in ${projects[@]}
