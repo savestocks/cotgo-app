@@ -18,7 +18,6 @@ export const groupReducer = createReducer(
       }))
 );
 export function reducer(state: GroupState | undefined, action: Action): any {
-  console.warn(state);
   return groupReducer(state, action);
 26
 }

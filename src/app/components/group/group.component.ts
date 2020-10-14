@@ -13,18 +13,17 @@ import { GroupState } from 'src/app/reducers/group.reducer';
 export class GroupComponent implements OnInit {
   @Output() 
   private changed: EventEmitter<any> = new EventEmitter();
-  private groups =[];
+  private groups:  Group[];
   constructor(private service: GroupService, private store: Store<GroupState>) { }
 
   ngOnInit() {
     this.service.getGroups().subscribe((data: any)=> {
-      this.groups = data;
+      this.groups = data as Group[];
     });    
   }
   onChange(event: any){
-    this.store.dispatch(selectGroup({name:"Teste"} as Group));
-    console.warn(this.store);
-    this.changed.emit(event.target.value);
+    this.store.dispatch(selectGroup(event.target.value));
+    this.changed.emit(event.target.value.id);
   }
 
 }

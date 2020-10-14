@@ -17,12 +17,14 @@ export class FolderPage implements OnInit {
   public folder: string;
   private items;
   private filteredItems;
-  private selectedGroup: Observable<Group>;
+  private selectedGroup: Group;
   private groupFilter = "";
 
   constructor(private activatedRoute: ActivatedRoute,private service: ItemService,
       private localStorageService: LocalStorageService, private router: Router,private store: Store<GroupState>) {
-        this.selectedGroup = this.store.pipe(select(selectedGroup))
+        this.store.pipe(select(selectedGroup)).subscribe((it) => {
+          this.selectedGroup = it;
+        });
   }
 
   ngOnInit() {
