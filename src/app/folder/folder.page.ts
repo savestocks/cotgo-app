@@ -17,14 +17,11 @@ export class FolderPage implements OnInit {
   public folder: string;
   private items;
   private filteredItems;
-  private selectedGroup: Group;
   private groupFilter = "";
 
   constructor(private activatedRoute: ActivatedRoute,private service: ItemService,
       private localStorageService: LocalStorageService, private router: Router,private store: Store<GroupState>) {
-        this.store.pipe(select(selectedGroup)).subscribe((it) => {
-          this.selectedGroup = it;
-        });
+
   }
 
   ngOnInit() {
@@ -46,7 +43,7 @@ export class FolderPage implements OnInit {
 
   filterItems(){
     this.filteredItems = this.items.filter((it) => {
-      return this.groupFilter == "" || this.groupFilter == it.groupId;
+      return !this.groupFilter  || this.groupFilter == it.groupId;
     });
   }
 
