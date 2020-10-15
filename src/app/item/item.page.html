@@ -18,7 +18,7 @@
     <ion-label>Nome</ion-label>
     <ion-input type="text" [(ngModel)]="item.secret" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
-  <app-group></app-group>
+  <app-group [useAll]="false"></app-group>
     <ion-button color="secondary half" (click)="back()">Voltar</ion-button>
     <ion-button color="primary half" (click)="save()">Salvar</ion-button>
 </ion-content>

@@ -1,6 +1,7 @@
 <ion-item>
   <ion-label>Grupo</ion-label>
   <ion-select interface='action-sheet' (ionChange)="onChange($event)" [compareWith]="compare" [(ngModel)]="selected" okText="OK" cancelText="Voltar">
+    <ion-select-option *ngIf="useAll" [value]="">Todos</ion-select-option>
     <ion-select-option *ngFor="let group of groups" [value]="group">{{group.name}}</ion-select-option>
   </ion-select>
 </ion-item>

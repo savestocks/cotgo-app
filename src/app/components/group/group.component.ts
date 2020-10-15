@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { selectGroup } from 'src/app/actions/group.actions';
 import { GroupService } from 'src/app/api/group.service';
@@ -12,10 +12,12 @@ import { selectedGroup } from 'src/app/selector/group.selectors';
   styleUrls: ['./group.component.scss'],
 })
 export class GroupComponent implements OnInit {
+  @Input()
+  private useAll: boolean = true; 
   @Output() 
   private changed: EventEmitter<any> = new EventEmitter();
   private groups:  Group[];
-  private selected: Group;
+  private selected: any;
 
   constructor(private service: GroupService, private store: Store<GroupState>) { 
 
@@ -26,7 +28,11 @@ export class GroupComponent implements OnInit {
       this.groups = data as Group[];
 
       this.store.pipe(select(selectedGroup)).subscribe((it) => {
-        this.selected = it;
+        if(it && it.id){
+          this.selected = it;
+        }else{
+          this.selected = !this.useAll ? this.groups.length > 0 ? this.groups[0]: "" : "";
+        }
       });
 
     });    
@@ -36,7 +42,7 @@ export class GroupComponent implements OnInit {
     this.changed.emit(this.selected.id);
   }
   compare(obj1, obj2) {
-    return obj1 && obj2 && obj1.id == obj2.id;
+    return obj1 && obj2 && obj1.id == obj2.id ;
   }
 
 }

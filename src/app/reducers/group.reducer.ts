@@ -7,7 +7,7 @@ export interface GroupState {
   selectedGroup: Group;
 }
 export const initialState: GroupState = {
-  selectedGroup: {name: "abdfa initial"} as Group
+  selectedGroup: null
 };
 export const groupReducer = createReducer(
   initialState,
