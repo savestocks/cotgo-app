@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import {LocalStorageService} from '../service/local-storage.service';
+import { Item } from '../models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class ItemService {
 
   getItems(): Observable<Object> {
     return this.http.get(`${this.url}${this.endpoint}`,this.storageService.getAuthorizationHeader());
+  }
+
+  save(item: Item) {
+    return this.http.post(`${this.url}${this.endpoint}`,item, this.storageService.getAuthorizationHeader());
   }
 
 }

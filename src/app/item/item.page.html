@@ -10,15 +10,15 @@
 <ion-content>
   <ion-item>
     <ion-label>Sigla</ion-label>
-    <ion-input type="text" maxlength="5" [(ngModel)]="item.key" name="title"></ion-input>
+    <ion-input type="text" maxlength="5" [(ngModel)]="item.initial" name="title"></ion-input>
   </ion-item>
   
   <!-- or with standalone set to true -->
   <ion-item>
     <ion-label>Nome</ion-label>
-    <ion-input type="text" [(ngModel)]="item.secret" [ngModelOptions]="{standalone: true}"></ion-input>
+    <ion-input type="text" [(ngModel)]="item.name" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
-  <app-group [useAll]="false"></app-group>
+  <app-group [useAll]="false" (changed)="changeGroup($event)"></app-group>
     <ion-button color="secondary half" (click)="back()">Voltar</ion-button>
     <ion-button color="primary half" (click)="save()">Salvar</ion-button>
 </ion-content>

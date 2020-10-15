@@ -32,6 +32,7 @@ export class GroupComponent implements OnInit {
           this.selected = it;
         }else{
           this.selected = !this.useAll ? this.groups.length > 0 ? this.groups[0]: "" : "";
+          this.emit();
         }
       });
 
@@ -39,8 +40,13 @@ export class GroupComponent implements OnInit {
   }
   onChange(event: any){
     this.store.dispatch(selectGroup(event.target.value));
+    this.emit();
+  }
+
+  emit(){
     this.changed.emit(this.selected.id);
   }
+  
   compare(obj1, obj2) {
     return obj1 && obj2 && obj1.id == obj2.id ;
   }

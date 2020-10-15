@@ -1,5 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../api/item.service';
+import { Item } from '../models/item';
 
 @Component({
   selector: 'app-item',
@@ -7,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.page.scss'],
 })
 export class ItemPage implements OnInit {
-  private item: any = {};
-  constructor(private location:Location) { }
+  private item: Item = new Item();
+  constructor(private location:Location,private service: ItemService) { }
 
   ngOnInit() {
   }
@@ -16,7 +18,16 @@ export class ItemPage implements OnInit {
     this.location.back();
   }
 
-  save(): void {
-    throw "Not implemented yet";
+  save()  {
+    if(!this.item.valid()){
+      return 
+    }
+    this.service.save(this.item).subscribe((data) => {
+      this.location.go("folder/Cotação");
+    });
+  }
+
+  changeGroup(event) {
+    this.item.groupId = event;
   }
 }
