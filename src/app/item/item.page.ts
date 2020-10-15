@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ItemService } from '../api/item.service';
 import { Item } from '../models/item';
 
@@ -10,7 +11,7 @@ import { Item } from '../models/item';
 })
 export class ItemPage implements OnInit {
   private item: Item = new Item();
-  constructor(private location:Location,private service: ItemService) { }
+  constructor(private location:Location,private service: ItemService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,7 @@ export class ItemPage implements OnInit {
       return 
     }
     this.service.save(this.item).subscribe((data) => {
-      this.location.go("folder/Cotação");
+      this.router.navigate(['/folder/Cotação']);
     });
   }
 
