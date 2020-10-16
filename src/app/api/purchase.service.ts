@@ -20,7 +20,7 @@ export class PurchaseService {
     ) as Observable<Purchase[]>; 
   } 
 
-  save(item: Purchase) {
+  save(item: Purchase): Observable<any> {
     return this.http.post(`${this.url}${this.endpoint}`,item, this.storageService.getAuthorizationHeader());
   }
 

@@ -14,6 +14,6 @@
         <app-item-line *ngFor="let item of filteredItems" [item]="item" (onAdd)="addPurchase($event)"></app-item-line>
     </ion-list>
   </div>
-  <app-purchase *ngIf="selectedItem"></app-purchase>
+  <app-purchase *ngIf="selectedItem" (cancel)="cancelPurchase()" (onSave)="onSavePurchase($event)" [item]="selectedItem"></app-purchase>
 
 </ion-content>

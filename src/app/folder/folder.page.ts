@@ -28,13 +28,17 @@ export class FolderPage implements OnInit {
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.items = [];
+    this.load();
+    if(!this.localStorageService.get("apikey") ||  !this.localStorageService.get("apisecret")){
+      this.router.navigate(['/config'])
+    }
+  }
+
+  load(){
     this.service.getItems().subscribe((data: any)=> {
       this.items = data;
       this.filterItems();
     });
-    if(!this.localStorageService.get("apikey") ||  !this.localStorageService.get("apisecret")){
-      this.router.navigate(['/config'])
-    }
   }
 
   groupChanged(id: string){
@@ -49,8 +53,15 @@ export class FolderPage implements OnInit {
   }
 
   addPurchase(event){
-    console.warn(event)
     this.selectedItem = event;
+  }
+
+  cancelPurchase(){
+    this.selectedItem = null;
+  }
+
+  onSavePurchase(event){
+    this.selectedItem = null;
   }
 
 }
