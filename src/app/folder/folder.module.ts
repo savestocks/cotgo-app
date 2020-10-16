@@ -10,6 +10,7 @@ import { FolderPage } from './folder.page';
 import { ItemLineComponent } from '../components/item-line/item-line.component';
 import { GroupComponent } from '../components/group/group.component';
 import { PurchaseComponent } from '../components/purchase/purchase.component';
+import { MarketComponent } from '../components/market/market.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { PurchaseComponent } from '../components/purchase/purchase.component';
     IonicModule,
     FolderPageRoutingModule
   ],
-  declarations: [FolderPage,ItemLineComponent,GroupComponent,PurchaseComponent],
-  exports:[ItemLineComponent,GroupComponent,PurchaseComponent]
+  declarations: [FolderPage,ItemLineComponent,GroupComponent,PurchaseComponent,MarketComponent],
+  exports:[ItemLineComponent,GroupComponent,PurchaseComponent,MarketComponent]
 })
 export class FolderPageModule {}

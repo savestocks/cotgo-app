@@ -62,6 +62,7 @@ export class FolderPage implements OnInit {
 
   onSavePurchase(event){
     this.selectedItem = null;
+    this.load();
   }
 
 }
