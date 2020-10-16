@@ -17,6 +17,7 @@ export class FolderPage implements OnInit {
   public folder: string;
   private items;
   private filteredItems;
+  private selectedItem;
   private groupFilter = "";
 
   constructor(private activatedRoute: ActivatedRoute,private service: ItemService,
@@ -45,6 +46,11 @@ export class FolderPage implements OnInit {
     this.filteredItems = this.items.filter((it) => {
       return !this.groupFilter  || this.groupFilter == it.groupId;
     });
+  }
+
+  addPurchase(event){
+    console.warn(event)
+    this.selectedItem = event;
   }
 
 }

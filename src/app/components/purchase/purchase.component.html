@@ -1,0 +1,16 @@
+<div>
+    <ion-item>
+      <ion-label>Preço</ion-label>
+      <ion-input type="text" maxlength="5" [(ngModel)]="entity.price" name="price"></ion-input>
+    </ion-item>
+    
+    <!-- or with standalone set to true -->
+    <ion-item>
+      <ion-label>Qtd</ion-label>
+      <ion-input type="text" [(ngModel)]="entity.qtd" [ngModelOptions]="{standalone: true}"></ion-input>
+    </ion-item>
+    <app-group [useAll]="false" ></app-group>
+      <ion-button color="secondary half" (click)="back()">Voltar</ion-button>
+      <ion-button color="primary half" (click)="save()">Salvar</ion-button>
+</div>
+  

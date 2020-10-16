@@ -9,6 +9,7 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 import { FolderPage } from './folder.page';
 import { ItemLineComponent } from '../components/item-line/item-line.component';
 import { GroupComponent } from '../components/group/group.component';
+import { PurchaseComponent } from '../components/purchase/purchase.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { GroupComponent } from '../components/group/group.component';
     IonicModule,
     FolderPageRoutingModule
   ],
-  declarations: [FolderPage,ItemLineComponent,GroupComponent],
-  exports:[ItemLineComponent,GroupComponent]
+  declarations: [FolderPage,ItemLineComponent,GroupComponent,PurchaseComponent],
+  exports:[ItemLineComponent,GroupComponent,PurchaseComponent]
 })
 export class FolderPageModule {}

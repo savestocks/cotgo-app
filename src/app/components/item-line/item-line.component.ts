@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item-line',
@@ -8,8 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ItemLineComponent implements OnInit {
   @Input()
   public item;
+  @Output()
+  public onAdd: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {}
+
+  clickAdd() {
+    this.onAdd.emit(this.item);
+  }
 
 }

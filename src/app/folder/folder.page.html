@@ -7,9 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <app-group (changed)="groupChanged($event)"></app-group>
-  <ion-list>
-      <app-item-line *ngFor="let item of filteredItems" [item]="item"></app-item-line>
-  </ion-list>
+<ion-content  [fullscreen]="true">
+  <div *ngIf="!selectedItem">
+    <app-group (changed)="groupChanged($event)"></app-group>
+    <ion-list>
+        <app-item-line *ngFor="let item of filteredItems" [item]="item" (onAdd)="addPurchase($event)"></app-item-line>
+    </ion-list>
+  </div>
+  <app-purchase *ngIf="selectedItem"></app-purchase>
+
 </ion-content>
