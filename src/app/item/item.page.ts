@@ -10,7 +10,7 @@ import { Item } from '../models/item';
   styleUrls: ['./item.page.scss'],
 })
 export class ItemPage implements OnInit {
-  private item: Item = new Item();
+  public item: Item = new Item();
   constructor(private location:Location,private service: ItemService, private router: Router) { }
 
   ngOnInit() {

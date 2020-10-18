@@ -10,7 +10,7 @@ import { Market } from 'src/app/models/market';
 export class MarketComponent implements OnInit {
   @Output() 
   private changed: EventEmitter<any> = new EventEmitter();
-  private markets:  Market[];
+  public markets:  Market[];
 
   constructor(private service: MarketService) { 
 

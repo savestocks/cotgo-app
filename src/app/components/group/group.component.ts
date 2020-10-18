@@ -13,11 +13,11 @@ import { selectedGroup } from 'src/app/selector/group.selectors';
 })
 export class GroupComponent implements OnInit {
   @Input()
-  private useAll: boolean = true; 
+  public useAll: boolean = true; 
   @Output() 
   private changed: EventEmitter<any> = new EventEmitter();
-  private groups:  Group[];
-  private selected: any;
+  public groups:  Group[];
+  public selected: any;
 
   constructor(private service: GroupService, private store: Store<GroupState>) { 
 

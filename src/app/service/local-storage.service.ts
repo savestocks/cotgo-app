@@ -46,7 +46,8 @@ export class LocalStorageService {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': 'Basic ' + btoa(`${key}:${secret}`)
-      })
+      }),
+      mode: 'no-cors'
     };
     return httpOptions;
   }

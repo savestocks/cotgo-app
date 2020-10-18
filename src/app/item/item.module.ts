@@ -7,16 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ItemPageRoutingModule } from './item-routing.module';
 
 import { ItemPage } from './item.page';
-import { GroupComponent } from '../components/group/group.component';
+import { FolderPageModule } from '../folder/folder.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ItemPageRoutingModule
+    ItemPageRoutingModule,
+    FolderPageModule
   ],
-  declarations: [ItemPage,GroupComponent],
-  exports:[GroupComponent]
+  declarations: [ItemPage],
+  exports:[]
 })
 export class ItemPageModule {}

@@ -15,7 +15,7 @@ export class PurchaseComponent implements OnInit {
   private cancel: EventEmitter<boolean> = new EventEmitter();
   @Output()
   private onSave: EventEmitter<Purchase> = new EventEmitter();
-  private entity: Purchase = new Purchase();
+  public entity: Purchase = new Purchase();
   constructor(private service: PurchaseService) { }
 
   ngOnInit(): void {

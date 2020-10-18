@@ -16,8 +16,8 @@ import { LocalStorageService } from '../service/local-storage.service';
 export class FolderPage implements OnInit {
   public folder: string;
   private items;
-  private filteredItems;
-  private selectedItem;
+  public filteredItems;
+  public selectedItem;
   private groupFilter = "";
 
   constructor(private activatedRoute: ActivatedRoute,private service: ItemService,
