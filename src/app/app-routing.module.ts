@@ -18,7 +18,12 @@ const routes: Routes = [
   {
     path: 'item',
     loadChildren: () => import('./item/item.module').then( m => m.ItemPageModule)
+  },
+  {
+  path: 'orcamento',
+    loadChildren: () => import('./wallet/wallet.module').then( m => m.WalletPageModule)
   }
+
 
 ];
 

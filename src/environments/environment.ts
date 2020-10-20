@@ -7,7 +7,8 @@ export const environment = {
   itemApiUrl: 'http://localhost:8084/item-api/v1/',
   groupApiUrl: 'http://localhost:8080/group-api/v1/',
   purchaseApiUrl: 'http://localhost:8083/purchase-api/v1/',
-  marketApiUrl: 'http://localhost:8082/market-api/v1/'
+  marketApiUrl: 'http://localhost:8082/market-api/v1/',
+  walletApiUrl: 'http://localhost:8081/wallet-api/v1/'
 };
 
 /*

@@ -23,6 +23,11 @@ export class AppComponent implements OnInit {
       icon: 'bag-add'
     },
     {
+      title: 'Orçamento',
+      url: '/orcamento',
+      icon: 'sad'
+    },
+    {
       title: 'Configurações',
       url: '/config',
       icon: 'construct'
