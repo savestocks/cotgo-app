@@ -10,24 +10,9 @@ import { Wallet } from '../models/wallet';
 })
 export class WalletPage implements OnInit {
   public wallet: Wallet = new Wallet();
-  constructor(private location:Location,private service: WalletService, private router: Router) { }
+  constructor(private service: WalletService, private router: Router) { }
 
   ngOnInit() {
-  }
-  back(): void {
-    this.location.back();
-  }
-
-  save()  {
-    if(!this.wallet.valid()){
-      return 
-    }
-    this.service.save(this.wallet).subscribe((data) => {
-      this.router.navigate(['/folder/Cotação']);
-    });
-  }
-
-  changeGroup(event) {
-    this.wallet.groupId = event;
+    this.service.getAll().subscribe((it) => {console.warn(it)})
   }
 }

@@ -8,6 +8,7 @@ import { WalletPageRoutingModule } from './wallet-routing.module';
 
 import { WalletPage } from './wallet.page';
 import { FolderPageModule } from '../folder/folder.module';
+import { BudgetCardComponent } from '../components/budget-card/budget-card.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { FolderPageModule } from '../folder/folder.module';
     WalletPageRoutingModule,
     FolderPageModule
   ],
-  declarations: [WalletPage],
-  exports:[]
+  declarations: [WalletPage,BudgetCardComponent],
+  exports:[BudgetCardComponent]
 })
 export class WalletPageModule {}

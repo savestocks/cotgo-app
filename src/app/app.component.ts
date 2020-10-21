@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Orçamento',
       url: '/orcamento',
-      icon: 'sad'
+      icon: 'bar-chart'
     },
     {
       title: 'Configurações',

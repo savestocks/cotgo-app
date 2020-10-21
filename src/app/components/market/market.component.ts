@@ -22,7 +22,7 @@ export class MarketComponent implements OnInit {
     });    
   }
   onChange(event: any){
-    this.changed.emit(event.target.value);
+    this.changed.emit(event.target.value.id);
   }
   
   compare(obj1, obj2) {
