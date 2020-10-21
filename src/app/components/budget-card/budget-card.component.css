@@ -44,11 +44,11 @@
 }
 
 .available {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     color: #55AA55;
 }
 .notAvailable {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     color: #AA5555;
 
 }
