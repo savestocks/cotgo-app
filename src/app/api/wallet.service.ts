@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Expense } from '../models/expense';
 import { LocalStorageService } from '../service/local-storage.service';
 
 @Injectable({
@@ -10,6 +12,7 @@ import { LocalStorageService } from '../service/local-storage.service';
 export class WalletService {
   url: string = environment.walletApiUrl;
   endpoint: string = 'walletPosition';
+  endpointExpense: string = 'expense';
 
 
 
@@ -17,5 +20,11 @@ export class WalletService {
 
   getAll(): Observable<Object> {
     return this.http.get(`${this.url}${this.endpoint}/091bd1fcc4d896b125692145ace105cd`,this.storageService.getAuthorizationHeader());
+  }
+
+  getExpenses(): Observable<Expense[]> {
+    return this.http.get(`${this.url}${this.endpointExpense}`,this.storageService.getAuthorizationHeader()).pipe(
+      catchError(() => {return [] as Expense[]})
+    )  as Observable<Expense[]>;
   }
 }
