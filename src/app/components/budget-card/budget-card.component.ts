@@ -16,10 +16,12 @@ export class BudgetCardComponent implements OnInit {
   public counterBaseClass='counter010';
   public counterStyle={top:'100%',height:'0%'};
   public percent = 0;
+  public available = '';
 
   private interval;
   private ratio: number;
   private counter = 0;
+  
   constructor(private service: WalletService) {
 
   }
@@ -29,6 +31,7 @@ export class BudgetCardComponent implements OnInit {
     this.ratio = Math.floor(this.expense.monthlyBudget/10);
     this.service.getWalletPosition(this.expense.id).subscribe((data)=>{
       this.walletPosition = data;
+      this.available = ((this.expense.monthlyBudget - data.total) / 100).toFixed(2);
       this.interval = setInterval(()=>{
         this.process();
       },200);
@@ -47,6 +50,9 @@ export class BudgetCardComponent implements OnInit {
     }
     this.percent = Math.floor(this.counter / this.expense.monthlyBudget * 100);
     let top = this.percent > 100 ? 100: this.percent;
+    if(top < 25) {
+      top = 25;
+    }
     this.counterStyle = {top: (100 - top) +  '%', height: top + '%'};
     this.prepareClass();
   }

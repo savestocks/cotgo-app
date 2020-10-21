@@ -42,3 +42,13 @@
 .counter90100{
     background-image: url('../../../assets/img/90-100.png');
 }
+
+.available {
+    font-size: 0.8rem;
+    color: #55AA55;
+}
+.notAvailable {
+    font-size: 0.8rem;
+    color: #AA5555;
+
+}

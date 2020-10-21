@@ -7,6 +7,8 @@
     <div class="counterBase" [ngClass]="counterBaseClass">
       <div class="counter" [ngStyle]="counterStyle" [ngClass]="counterClass" >{{percent}} %</div>
     </div>
+    <p *ngIf="available > 0" class="available">Disponível: {{available}} €</p>
+    <p *ngIf="available <= 0" class="notAvailable">Sem orçamento</p>
   </ion-card-content>
 </ion-card>
 
