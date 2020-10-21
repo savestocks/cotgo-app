@@ -10,8 +10,8 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col  *ngFor="let expense of expenses" offset-md="2" size-xs="6" size-md="4">
-        <app-budget-card></app-budget-card>
+      <ion-col  *ngFor="let expense of expenses"  size-xs="6" size-md="4">
+        <app-budget-card [expense]="expense"></app-budget-card>
       </ion-col>
     </ion-row>
   </ion-grid>

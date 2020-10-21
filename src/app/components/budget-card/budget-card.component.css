@@ -1,5 +1,44 @@
-.counter {
+.counterBase {
     height: 5rem;
-    background-color: #f00;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.counter{
+    height: 100%;
+    width: 100%;
     text-align: center;
+    transition: all 3s;
+    position: relative;
+    color:#FFF;
+}
+
+.counterOK {
+    background-color: #55AA5588;
+
+}
+.counterWarning {
+    background-color: #AAAA5588;
+}
+.counterCritical {
+    background-color: #AA555588;
+}
+
+.counter010{
+    background-image: url('../../../assets/img/0-10.png');
+}
+.counter1030{
+    background-image: url('../../../assets/img/10-30.png');
+}
+.counter3050{
+    background-image: url('../../../assets/img/30-50.png');
+}
+.counter5070{
+    background-image: url('../../../assets/img/50-70.png');
+}
+.counter7090{
+    background-image: url('../../../assets/img/70-90.png');
+}
+.counter90100{
+    background-image: url('../../../assets/img/90-100.png');
 }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Expense } from '../models/expense';
+import { WalletPosition } from '../models/walletPosition';
 import { LocalStorageService } from '../service/local-storage.service';
 
 @Injectable({
@@ -18,8 +19,10 @@ export class WalletService {
 
   constructor(private http: HttpClient,private storageService: LocalStorageService) { }
 
-  getAll(): Observable<Object> {
-    return this.http.get(`${this.url}${this.endpoint}/091bd1fcc4d896b125692145ace105cd`,this.storageService.getAuthorizationHeader());
+  getWalletPosition(id: string): Observable<WalletPosition> {
+    return this.http.get(`${this.url}${this.endpoint}/${id}`,this.storageService.getAuthorizationHeader()).pipe(
+      catchError(() => {return  WalletPosition})
+    ) as Observable<WalletPosition>;
   }
 
   getExpenses(): Observable<Expense[]> {
