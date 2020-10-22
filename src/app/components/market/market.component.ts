@@ -11,7 +11,7 @@ export class MarketComponent implements OnInit {
   @Output() 
   private changed: EventEmitter<any> = new EventEmitter();
   public markets:  Market[];
-
+  public selected: null;
   constructor(private service: MarketService) { 
 
   }
@@ -23,6 +23,7 @@ export class MarketComponent implements OnInit {
   }
   onChange(event: any){
     this.changed.emit(event.target.value.id);
+    this.selected = event.target.value;
   }
   
   compare(obj1, obj2) {

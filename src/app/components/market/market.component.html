@@ -1,5 +1,6 @@
 <ion-item>
   <ion-label>Mercado</ion-label>
+  <ion-img [src]="selected.picture" *ngIf="selected"></ion-img>
   <ion-select interface='action-sheet' (ionChange)="onChange($event)" [compareWith]="compare" value="" okText="OK" cancelText="Voltar">
     <ion-select-option *ngFor="let market of markets" [value]="market">{{market.name}}</ion-select-option>
   </ion-select>
